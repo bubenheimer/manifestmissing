@@ -1,0 +1,30 @@
+buildscript {
+    ext {
+        android_plugin_version = '3.4.0-rc01'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$android_plugin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+    }
+}
+
+ext {
+    javaVersion = JavaVersion.VERSION_1_8
+}
+
+tasks.register('clean', Delete) {
+    delete rootProject.buildDir
+}
